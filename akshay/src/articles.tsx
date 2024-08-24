@@ -4,7 +4,7 @@ let articles = {
         summary: [<p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and ‘display: none’ to most things. The clock had started yawning A…M. And in such a dark and void night, Flexbox was walking home, alone and hurriedly...</p>],
         content: [
             <>
-                <p>It was a scary night. God of CSS had set the <i>background-color</i> to <i>‘grey’</i> and <i>‘display: none’</i> to most things. The clock had started yawning A…M. And in such a dark and void night, Flexbox was walking home, alone and hurriedly, after a long hectic day of aligning items and justifying content. He was scared. He had heard a lot of rumours about this area and this street in particular, although he never believed them.</p>
+                <p><b>It was a scary night.</b> God of CSS had set the <i>background-color</i> to <i>‘grey’</i> and <i>‘display: none’</i> to most things. The clock had started yawning A…M. And in such a dark and void night, Flexbox was walking home, alone and hurriedly, after a long hectic day of aligning items and justifying content. He was scared. He had heard a lot of rumours about this area and this street in particular, although he never believed them.</p>
 
                 <p>  Flexbox believed in science. He knew that the world is governed by the laws of <i>box-model</i>. Most people around him believed that these laws of box-model were set by some divine God called Jesus Webdev but Flexbox was a bitter follower of atheism. He believed that life has no purpose or any meaning. <i>‘Shrink-grow-wrap-repeat’</i>, that’s the only life he knew.</p>
 
@@ -12,7 +12,6 @@ let articles = {
                 src="/manWalking.jpg"
                 alt="A man walking in dark alone"
                 />
-                A man walking home at night.
 
                 <p>
                     That scarry night…

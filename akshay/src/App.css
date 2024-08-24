@@ -632,7 +632,7 @@ display: flex;
   z-index: 7;
   background-color: white;
   padding: 20px;
-  animation: animWidth 200ms;
+  animation: animWidth 300ms;
 
 }
 
@@ -656,17 +656,22 @@ border-radius: 50%;
 
 .category{
   position: absolute;
-  top: 15px;
-  left: 5px;
-  border: 1px solid red;
+  top: 20px;
+  left: 20px;
+box-shadow: 0 0 5px black;
   border-radius: 10px;
   display: flex;
   align-content: center;
   justify-content: center;
+  background-color: rgb(243, 238, 238);
+  text-align: center;
 }
 
+
 .category p {
-  
+  margin: 0;
+  padding: 0 15px;
+  font-size: 12px;
 }
 
 
@@ -675,15 +680,17 @@ border-radius: 50%;
 
   .pHeader {
     padding: 5px;
+    
   }
 
   .pHeader2 {
-    padding: 5px;
+    padding: 0 20px;
   }
 
   .pHeaderLogo {
     padding: 0;
     margin: 5px 10px;
+    min-width: 0px;
   }
 
   .pHeaderLogo2 {
@@ -712,7 +719,7 @@ border-radius: 50%;
 
   .pHeaderNav {
     flex-direction: column;
-    padding: 5px 20px;
+    padding: 5px 0px;
   }
 
   .video {
@@ -730,7 +737,8 @@ border-radius: 50%;
   }
 
   .margin10 h1 {
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: 500;
   }
 
   .services {
@@ -760,10 +768,11 @@ border-radius: 50%;
   }
 
   .card {
-    border-radius: 20px;
-    margin: 20px 10px;
-    box-shadow: 0px 0px 8px lightgray;
-    border: 1px solid lightgray;
+    margin: 15px 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(238, 231, 231);
+    box-shadow: none;
+    background-color: rgb(245 250 254);
   }
 
   .mobNav {
@@ -781,7 +790,7 @@ border-radius: 50%;
   }
 
   .cardContent h4 {
-    text-align: center;
+
   }
 
   .cardContainer {
@@ -789,8 +798,8 @@ border-radius: 50%;
   }
 
   .cardContent {
-    padding-bottom: 20px;
- 
+    padding-bottom: 10px;
+    padding: 5px 20px;
   }
 
   
@@ -828,15 +837,23 @@ border-radius: 50%;
   .summary{
     grid-template-columns: 1fr;
     padding: 0px;
-    margin: 0px;
+    margin: 20px;
     max-width: 95%;
+    border-radius: 30px;
+    background-color: white;
+  }
+
+  .cardImg{
+    max-height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   .cardImg img {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
   }
   .contentPost{
-    max-width: 90%;
+    max-width: 85%;
   }
   .contentPost p{
     font-size: 17px;
@@ -846,5 +863,24 @@ border-radius: 50%;
     font-size: 30px;
   }
   
-
+  .summaryCard{
+    margin: 15px 0px;
+    border-radius: 10px;
+    border: 1px solid rgb(245, 241, 241);
+    box-shadow: none;
+    background-color: rgb(245 250 254);
+  }
+  .cardContent p{
+    padding-bottom: 0;
+  }
+.contentTitle {
+ padding: 0 2.5%;
+  background-color: #f5f3f3;
+}
+.navLink{
+  flex-basis: 90%;
+}
+.recentWork h2{
+  margin-bottom: 0;
+}
 }

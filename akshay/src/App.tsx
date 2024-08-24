@@ -4,13 +4,14 @@ import { Routes, Route, NavLink, useLocation, HashRouter } from 'react-router-do
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faTwitter, faFacebook, faLinkedin, } from '@fortawesome/free-brands-svg-icons'
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faTwitter, faFacebook, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import { faBars, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import EmblaCarousel from './EmblaCarousel'
 import './css/base.css'
 import './css/sandbox.css'
 import './css/embla.css'
 import articles from './articles';
+import { prefix } from '@fortawesome/free-brands-svg-icons/faAdn';
 
 
 export function App() {
@@ -47,6 +48,7 @@ export function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/career' element={<BarC />} />
         <Route path='/article' element={<ContentFull />} />
+        <Route path='mobNav' element={<ContentFull />} />
       </Routes>
       <Footer />
     </HashRouter>
@@ -572,6 +574,9 @@ function MobileNav({ setShowMobNav }: any) {
         <div className='navLink'> <NavLink to={'/services'}><a href=''>Career</a></NavLink></div>
 
       </div>
+      <div>
+      <FontAwesomeIcon icon={faCircleXmark} fontSize={30} />
+      </div>
 
     </div>
   )
@@ -610,13 +615,13 @@ function ContentSummary() {
             <div data-aos='fade-up' className="summaryCard" >
               <div className='cardImg'>
                 <img
-                  src='/manWalking.jpg'
+                  src='/flowers.jpg'
                 />
 
               </div>
               <div data-aos='fade-up' className='cardContent'>
                 <h4>A Night With Flexbox...</h4>
-                <p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and ‘display: none’ to most things. The clock had started yawning A…M. And in such a dark and void night, Flexbox was walking home, alone and hurriedly...</p>
+                <p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and ‘display: none’ to most things....</p>
               </div>
               <div>
 
@@ -630,7 +635,7 @@ function ContentSummary() {
             <div data-aos='fade-up' className="summaryCard" >
               <div className='cardImg'>
                 <img
-                  src='/flowers.jpg'
+                  src='/manWalking.jpg'
                 />
                 <div className='category'> 
                   <p>Fiction</p>
@@ -638,11 +643,10 @@ function ContentSummary() {
               </div>
               <div data-aos='fade-up' className='cardContent'>
                 <h4>A Night With Flexbox...</h4>
-                <p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and ‘display: none’ to most things. The clock had started yawning A…M. And in such a dark and void night, Flexbox was walking home, alone and hurriedly...</p>
+                <p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and ‘display: none’ to most things...</p>
               </div>
               <div>
-
-
+ 
               </div>
 
             </div>
