@@ -38,6 +38,17 @@
   --admonition-danger-rgb-value: 220, 38, 38;
 }
 
+@keyframes opacity {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1;
+
+  }
+}
+
 
 .read-the-docs {
   color: #888;
@@ -68,6 +79,8 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 50px;
 }
+
+
 
 
 .pHeaderLogo {
@@ -128,7 +141,7 @@
 .pHeaderNav {
   flex: 3 1 100%;
   padding: 0 40px;
-display: flex;
+  display: flex;
 }
 
 .stickyHeaderNav {
@@ -136,10 +149,12 @@ display: flex;
   padding: 0 60px;
   min-width: 600px;
 }
-.navLinks{
+
+.navLinks {
   flex-basis: 100%;
   align-items: baseline;
 }
+
 .navLink {
   text-align: center;
   position: relative;
@@ -234,28 +249,65 @@ display: flex;
   box-shadow: 2px 5px 10px lightgray;
 }
 
-.stickyNavTitle{
+.stickyNavTitle {
   font-size: 20px;
   font-weight: 500;
   text-decoration: none;
   color: black;
 }
 
-.contentGrid{
+.contentGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.contentPost{
+.contentPost {
   align-self: center;
   display: grid;
   grid-template-columns: 1fr;
   max-width: 60%;
   justify-content: center;
   align-items: center;
+  animation: opacity 300ms;
+  font-size: 20px;
 }
 
-.contentPost img{
+
+.contentPost2 {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 80%;
+  justify-content: center;
+  align-items: center;
+  animation: opacity 300ms;
+  font-size: 20px;
+
+}
+
+
+.contentPost2 img {
+  padding: 10px 0;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  margin: 10px 0;
+  border-radius: 20px;
+}
+
+
+.contentPostTable {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 60%;
+  justify-content: center;
+  align-items: center;
+  animation: opacity 300ms;
+}
+
+
+.contentPost img {
   padding: 30px 0;
   width: 100%;
   object-fit: cover;
@@ -349,23 +401,30 @@ display: flex;
   border-top: 1px solid lightgray;
 }
 
+
 .summary a {
   font-weight: 400;
   color: #213547;
   text-decoration: none;
 }
 
-.summary:hover a{
+.summary:hover a {
   color: #213547;
 }
 
 .cardContent p {
-  font-size: 15px;
-  padding-bottom: 30px;
+  font-size: 17px;
+  padding-bottom: 20px;
+
+}
+
+.cardContent b {
+  font-weight: 600;
 }
 
 .cardContent h4 {
   color: black;
+  font-size: 17px;
 }
 
 
@@ -528,9 +587,10 @@ display: flex;
   animation: animHeight 200ms;
 }
 
-.summary{
+.summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
   padding: 10px 5%;
   margin: 0 30px;
   align-self: center;
@@ -602,6 +662,10 @@ display: flex;
   align-items: center;
 }
 
+.aboutus {
+  text-align: center;
+}
+
 .paddingContent {
   display: flex;
   flex-direction: column;
@@ -633,37 +697,42 @@ display: flex;
   background-color: white;
   padding: 20px;
   animation: animWidth 300ms;
+}
 
+.mobNavLinks h3 {
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .mobileNav a {
   color: black;
 }
-.avtar{
+
+.avtar {
   width: 130px;
   height: 130px;
   border: 5px solid black;
   border-radius: 50%;
 }
 
-.avtar img{
-width: 100%;
-height: 100%;
-object-fit: cover;
-border: 1ps solid red;
-border-radius: 50%;
+.avtar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1ps solid red;
+  border-radius: 50%;
 }
 
-.category{
+.category {
   position: absolute;
   top: 20px;
   left: 20px;
-box-shadow: 0 0 5px black;
+  box-shadow: 0 0 5px grey;
   border-radius: 10px;
   display: flex;
   align-content: center;
   justify-content: center;
-  background-color: rgb(243, 238, 238);
+  background-color: rgb(255, 255, 255);
   text-align: center;
 }
 
@@ -671,8 +740,16 @@ box-shadow: 0 0 5px black;
 .category p {
   margin: 0;
   padding: 0 15px;
-  font-size: 12px;
+  font-size: 15px;
 }
+
+.contentTitle {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 15px;
+  text-align: center;
+}
+
 
 
 @media screen and (max-width: 800px) {
@@ -680,7 +757,7 @@ box-shadow: 0 0 5px black;
 
   .pHeader {
     padding: 5px;
-    
+
   }
 
   .pHeader2 {
@@ -789,9 +866,7 @@ box-shadow: 0 0 5px black;
     margin: 10px;
   }
 
-  .cardContent h4 {
-
-  }
+  .cardContent h4 {}
 
   .cardContainer {
     justify-content: center;
@@ -802,7 +877,7 @@ box-shadow: 0 0 5px black;
     padding: 5px 20px;
   }
 
-  
+
   .portfolio {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -823,18 +898,20 @@ box-shadow: 0 0 5px black;
     max-height: 80%;
 
   }
-  .stickyHeaderNav{
+
+  .stickyHeaderNav {
     min-width: 0px;
   }
+
   .pHeaderLogo p {
     font-size: 20px;
   }
-  
+
   .pHeaderLogo2 h2 {
     font-size: 20px;
   }
 
-  .summary{
+  .summary {
     grid-template-columns: 1fr;
     padding: 0px;
     margin: 20px;
@@ -843,44 +920,78 @@ box-shadow: 0 0 5px black;
     background-color: white;
   }
 
-  .cardImg{
+  .cardImg {
     max-height: 150px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
+
   .cardImg img {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
   }
-  .contentPost{
+
+  .contentPost {
     max-width: 85%;
   }
-  .contentPost p{
+
+  .contentPost p {
+    font-size: 18px;
+  }
+
+  .contentPost li {
     font-size: 17px;
   }
-  .contentTitle h1{
+
+  .contentTitle h1 {
     text-align: center;
     font-size: 30px;
   }
-  
-  .summaryCard{
+
+  .summaryCard {
     margin: 15px 0px;
     border-radius: 10px;
     border: 1px solid rgb(245, 241, 241);
     box-shadow: none;
     background-color: rgb(245 250 254);
   }
-  .cardContent p{
+
+  .cardContent p {
     padding-bottom: 0;
+    font-size: 15px;
   }
-.contentTitle {
- padding: 0 2.5%;
-  background-color: #f5f3f3;
-}
-.navLink{
-  flex-basis: 90%;
-}
-.recentWork h2{
-  margin-bottom: 0;
-}
+
+  .contentTitle {
+    padding: 0 2.5%;
+    background-color: #f5f3f3;
+    min-height: 150px;
+    margin: 15px 10px;
+  }
+
+  .contentTitle p {
+    font-size: 15px;
+  }
+
+  .navLink {
+    flex-basis: 90%;
+  }
+
+  .recentWork h2 {
+    margin-bottom: 0;
+  }
+
+  .alignV {
+    align-items: center;
+  }
+
+  .minWidth {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .contentPost2{
+    max-width: 95%;
+  }
+  .footerGrid a{
+    font-size: 15px;
+  }
 }

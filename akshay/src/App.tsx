@@ -4,14 +4,13 @@ import { Routes, Route, NavLink, useLocation, HashRouter } from 'react-router-do
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faTwitter, faFacebook, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faTwitter, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faBars, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import EmblaCarousel from './EmblaCarousel'
 import './css/base.css'
 import './css/sandbox.css'
 import './css/embla.css'
 import articles from './articles';
-import { prefix } from '@fortawesome/free-brands-svg-icons/faAdn';
 
 
 export function App() {
@@ -47,8 +46,12 @@ export function App() {
         <Route path='/about' element={<AboutUs />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/career' element={<BarC />} />
-        <Route path='/article' element={<ContentFull />} />
-        <Route path='mobNav' element={<ContentFull />} />
+        <Route path='/article1' element={<ContentFull article={1} />} />
+        <Route path='/article2' element={<ContentFull article={2}/>} />
+        <Route path='/article3' element={<ContentFull article={3} />} />
+        <Route path='/article4' element={<ContentFull article={4} />} />
+        <Route path='/article5' element={<ContentFull article={5} />} />
+        <Route path='/article6' element={<ContentFull2 article={6} />} />
       </Routes>
       <Footer />
     </HashRouter>
@@ -74,6 +77,7 @@ function BarC() {
 
   </>;
 }
+
 
 function Header({ setShowMobNav }: any) {
 
@@ -128,6 +132,47 @@ function Header({ setShowMobNav }: any) {
     </div>
   </div>)
 }
+
+
+function MobFixHeader({ setShowMobNav }: any) {
+
+  const { pathname } = useLocation();
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return (<div className='pHeader2 minWidth'>
+
+    <div
+      className='pHeaderLogo' >
+      <NavLink to='/'>
+        <p>Akshay </p>
+      </NavLink>
+
+    </div>
+
+    <div className='pHeaderNav'>
+      <div className='navLinks flex'>
+        <div className='navLink'> <NavLink
+          className={({ isActive }) => isActive ? 'current' : ''}
+          to={'/'}><div><a href=''>Home</a></div></NavLink></div>
+
+
+      </div>
+      <div
+        className='mobNav'
+        onClick={() => setShowMobNav(true)}
+      >
+        <div className='bread'>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
+      </div>
+    </div>
+  </div>)
+}
+
 
 function StickyNav({ setShowMobNav, showFixedNav }: any) {
 
@@ -242,7 +287,8 @@ function Services() {
 
 
         </div>
-        <div data-aos='fade-up' className='cardContainer '>
+        
+        {/* <div data-aos='fade-up' className='cardContainer '>
           <div className="card" >
             <div className='cardImg'>
               <img
@@ -293,7 +339,7 @@ function Services() {
 
 
 
-        </div>
+        </div> */}
       </div>
 
     </>
@@ -517,7 +563,7 @@ function AboutUs() {
       <h1>About Me</h1>
 
       <div className='paddingContent'>
-        <p><b>I</b> am a jack of all trades, trying to be master of some. I am a web developer and content writer and a voracious reader. I am a web Frontend developer, content writer and a voracious reader. I also enjoy  UX/UI designing and  writing copy for the same.
+        <p><b>I</b> am a jack of all trades, trying to master some. I am a web developer, content writer and a voracious reader. I also enjoy  UX/UI designing and  writing copy for the web and apps.
           <p>In my spare time, I compose music with FL Studio and Ableton Live or contribute on Wikipedia and StackOverflow.</p> </p>
 
       </div>
@@ -532,14 +578,12 @@ function Contact() {
     <>
 
       <div className='aboutus'>
-        <h1>Head Office</h1>
-      </div>
-      <div className='paddingContent'>
-        <div className='paddingContent'> <p>3rs floor, Trade Center, Kolhapur Station Rd</p></div>
-        <div className='paddingContent'> <p>New Shahupuri, Kolhapur,</p></div>
-        <div className='paddingContent'> <p>Kolhapur, Maharashtra. 416001</p></div>
-      </div>
 
+        <h1>Shoot a mail!</h1>
+        <div className='paddingContent'>
+          <h4>akshay@akshayp.in</h4>
+        </div>
+      </div>
     </>
   )
 }
@@ -547,58 +591,88 @@ function Contact() {
 function MobileNav({ setShowMobNav }: any) {
 
   return (
-    <div className='mobileNav'
-      onClick={() => setShowMobNav(false)}
-    >
-      <div className='navLink'>
+    <>
 
-        <div className='mobNavLinks'>
-          <NavLink
+      <div className='mobileNav'
+        onClick={() => setShowMobNav(false)}
+      >
+
+        <MobFixHeader />
+
+        <div className='navLink'>
+
+          <div className='mobNavLinks'>
+            <p></p>
+            <NavLink
+              className={({ isActive }) => isActive ? 'current' : ''}
+              to={'/'}><div><a href=''>Home</a></div></NavLink></div>
+
+
+          <div className='navLink'> <NavLink
             className={({ isActive }) => isActive ? 'current' : ''}
-            to={'/'}><div><a href=''>Home</a></div></NavLink></div>
+            to={'/services'}><div><a href=''>Services</a></div></NavLink></div>
+          <div className='navLink'> <NavLink
+            className={({ isActive }) => isActive ? 'current' : ''}
+            to={'/portfolio'}><a href=''>Portfolio</a></NavLink></div>
+          <div className='navLink'> <NavLink
+            className={({ isActive }) => isActive ? 'current' : ''}
+            to={'/about'}><a href=''>About</a></NavLink></div>
+          <div className='navLink'> <NavLink
+            className={({ isActive }) => isActive ? 'current' : ''}
+            to={'/contact'}><a href=''>Contact</a></NavLink></div>
 
+          {/* <div className='navLink'> <NavLink to={'/services'}><a href=''>Career</a></NavLink></div> */}
 
-        <div className='navLink'> <NavLink
-          className={({ isActive }) => isActive ? 'current' : ''}
-          to={'/services'}><div><a href=''>Services</a></div></NavLink></div>
-        <div className='navLink'> <NavLink
-          className={({ isActive }) => isActive ? 'current' : ''}
-          to={'/portfolio'}><a href=''>Portfolio</a></NavLink></div>
-        <div className='navLink'> <NavLink
-          className={({ isActive }) => isActive ? 'current' : ''}
-          to={'/about'}><a href=''>About Us</a></NavLink></div>
-        <div className='navLink'> <NavLink
-          className={({ isActive }) => isActive ? 'current' : ''}
-          to={'/contact'}><a href=''>Contact Us</a></NavLink></div>
-
-        <div className='navLink'> <NavLink to={'/services'}><a href=''>Career</a></NavLink></div>
+        </div>
+        <div>
+          <FontAwesomeIcon icon={faCircleXmark} fontSize={30} />
+        </div>
 
       </div>
-      <div>
-      <FontAwesomeIcon icon={faCircleXmark} fontSize={30} />
-      </div>
-
-    </div>
+    </>
   )
 }
 
-function ContentFull() {
+function ContentFull({article}: any) {
 
   return (
 
     <>
-      <div className='contentTitle flex center'>
-        <h1>{articles[1].name}  </h1>
+      <div  className='contentTitle flex center'>
+
+      { articles[article].name }
       </div>
       <div className='flex center'>
 
         <div className='contentPost'>
-          {articles[1].content}
+          {articles[article].content}
         </div>
       </div>
     </>
   )
 }
+
+function ContentFull2({article}: any) {
+
+  return (
+
+    <>
+      <div  className='contentTitle flex center'>
+
+      { articles[article].name }
+      </div>
+      <div className='flex center'>
+
+        <div className='contentPost2'>
+          {articles[article].content}
+        </div>
+      </div>
+    </>
+  )
+}
+
+
+
 
 function ContentSummary() {
 
@@ -611,67 +685,133 @@ function ContentSummary() {
 
 
         <div className='summary'>
-          <NavLink to={'/article'}>
+
+
+        
             <div data-aos='fade-up' className="summaryCard" >
+            <NavLink to={'/article2'}>
               <div className='cardImg'>
                 <img
-                  src='/flowers.jpg'
+               src='/flowers.jpg'
                 />
+              <div className='category'>
+                  <p>Copywriting</p>
+                </div>
+       
 
               </div>
               <div data-aos='fade-up' className='cardContent'>
-                <h4>A Night With Flexbox...</h4>
-                <p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and ‘display: none’ to most things....</p>
+      
+                  <h4>HealthWise</h4>
+       
+                <p><b>Copywriting for HealthWise.</b> HealthWise is a health insurance company that provides insurance for people who can't afford regular health insurance.</p>
               </div>
               <div>
 
-
               </div>
-
+ </NavLink>
             </div>
-          </NavLink>
+         
 
-          <NavLink to={'/article'}>
+
+
+        
             <div data-aos='fade-up' className="summaryCard" >
+            <NavLink to={'/article1'}>
               <div className='cardImg'>
                 <img
-                  src='/manWalking.jpg'
+                 src='/manWalking.jpg'
+             
                 />
-                <div className='category'> 
+       <div className='category'>
                   <p>Fiction</p>
                 </div>
               </div>
+
               <div data-aos='fade-up' className='cardContent'>
-                <h4>A Night With Flexbox...</h4>
-                <p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and ‘display: none’ to most things...</p>
+
+                <h4>A Night With Flexbox.</h4>
+                <p><b>It was a scary night.</b> God of CSS had set the background-color to ‘grey’ and most things had went ‘display: none’. The clock had started yawning A…M...</p>
               </div>
               <div>
- 
+
+
               </div>
+  </NavLink>
 
             </div>
-          </NavLink>
+        
 
-
-          <NavLink to={'/services'}>
-            <div data-aos='fade-up' className="summaryCard" >
+     
+            <div data-aos='fade-up' className="summaryCard" >  
+                 <NavLink to={'/article4'}>
               <div className='cardImg'>
                 <img
-                  src='/webdevW.png'
+                  src='/academics.jpg'
                 />
-
+                     <div className='category'>
+                  <p>Academics</p>
+                </div>
               </div>
               <div data-aos='fade-up' className='cardContent'>
-                <h4>Web Development</h4>
-                <p><b>We know how to convert visitors to customers.</b> We offer a comprehensive range of services including design, development, marketing, and SEO to drive more sales for your company.</p>
+                <h4>Synopsis for PhD</h4>
+                <p><b>My synopsis for PhD</b> as submitted to the university. It is well-researched and provides an overview of the current state of AI and ML with respect to translation.</p>
               </div>
               <div>
 
 
               </div>
-
+   </NavLink>
             </div>
-          </NavLink>
+       
+
+
+            <div data-aos='fade-up' className="summaryCard" >
+            <NavLink to={'/article6'}>
+              <div className='cardImg'>
+                <img
+                  src='/ux4.jpg'
+                />
+                     <div className='category'>
+                  <p>UX/UI</p>
+                </div>
+              </div>
+              <div data-aos='fade-up' className='cardContent'>
+                <h4>Ux Writing</h4>
+                <p><b>UX writing</b> for apps, promos, notifications and error messages. It also includes critique and comments on copy.</p>
+              </div>
+              <div>
+
+
+              </div>
+  </NavLink>
+            </div>
+        
+
+          
+      
+            <div data-aos='fade-up' className="summaryCard" >
+            <NavLink to={'/article5'}>
+              <div className='cardImg'>
+                <img
+                  src='/mediMan.png'
+                />
+                     <div className='category'>
+                  <p>Marathi</p>
+                </div>
+              </div>
+              <div data-aos='fade-up' className='cardContent'>
+                <h4>ध्यान कसं करावं?</h4>
+                <p>ध्यान का आणि कसं करावं, याचा आढावा. हा लेख लेखक जॉन येट्स यांच्या 'The Mind Illuminated' या संदर्भग्रंथावर आधारित आहे. ध्यानाचे वैज्ञानिक दृष्टीकोनातून सखोल चिंतन या लेखात केले आहे.</p>
+              </div>
+              <div>
+
+
+              </div>
+  </NavLink>
+            </div>
+        
+
         </div>
       </div>
     </>
